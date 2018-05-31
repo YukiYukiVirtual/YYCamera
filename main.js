@@ -15,14 +15,14 @@ if (!navigator.mediaDevices) {
 }
 
 	// カメラの設定
-	var media = {
+	var media = { audio: true, video: { width: 1280, height: 720 } };/*{
 		audio : false,
 		video : {
 			facingMode : {
 				exact : "environment"
 			}
 		}
-	};
+	};*/
 
 	// カメラ起動
 	navigator.mediaDevices.getUserMedia(media)
