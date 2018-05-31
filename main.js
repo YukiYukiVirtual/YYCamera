@@ -13,7 +13,13 @@
 	
 	canvas.addEventListener("click", function()
 	{
-		saveCanvas(canvas);
+		var htmlsrc = "<img src=\"" + 
+			canvas.toDataURL("image/png")
+			+ "\">";
+		var target = window.open("", "_blank");
+		target.document.open();
+		target.document.write(htmlsrc);
+		target.document.close();
 	});
 
 	navigator.getUserMedia(medias, successCallback, errorCallback);
@@ -32,6 +38,7 @@
 		canvas.width  = window.innerWidth;
 		canvas.height = window.innerHeight;
 		ctx.drawImage(video, 0, 0);
+		ctx.fillRect(0,0,100,100);
 
 		requestAnimationFrame(draw);
 	}
