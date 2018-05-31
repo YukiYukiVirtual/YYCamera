@@ -1,9 +1,17 @@
 (function()
 {
+	const filePath = "image/open.png";
+	const yukiyuki = new Image();
+	yukiyuki.src = filePath;
+	yukiyuki.addEventListener("load", function()
+	{
+		yukiyuki.loaded = true;
+	});
 	const medias = {
-		audio : false, video : {
-			facingMode : {
-				exact : "environment"
+		"audio": false,
+		"video": {
+			"facingMode": {
+				"exact": "environment"
 			}
 		}
 	};
@@ -13,12 +21,12 @@
 	
 	canvas.addEventListener("click", function()
 	{
-		var htmlsrc = "<img src=\"" + 
-			canvas.toDataURL("image/png")
-			+ "\">";
+		var src = canvas.toDataURL("image/png");
+		var img = '<img src="' + src + '" style="width:100vw;height:100vh;">';
+		var html = document.head.innerHTML + img;
 		var target = window.open("", "_blank");
 		target.document.open();
-		target.document.write(htmlsrc);
+		target.document.write(html);
 		target.document.close();
 	});
 
@@ -38,8 +46,14 @@
 		canvas.width  = window.innerWidth;
 		canvas.height = window.innerHeight;
 		ctx.drawImage(video, 0, 0);
-		ctx.fillRect(0,0,100,100);
-
+		
+		if(yukiyuki.loaded)
+		{
+			var x = canvas.width - yukiyuki.width;
+			var y = canvas.height - yukiyuki.height;
+			ctx.drawImage(yukiyuki, x, y);
+		}
+		
 		requestAnimationFrame(draw);
 	}
 })();
