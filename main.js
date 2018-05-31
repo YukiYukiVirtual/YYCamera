@@ -1,13 +1,10 @@
-alert(1);
 (function()
 {
-	alert(4);
 	const filePath = "image/open.png";
 	const yukiyuki = new Image();
 	yukiyuki.src = filePath;
 	yukiyuki.addEventListener("load", function()
 	{
-		alert(10);
 		yukiyuki.loaded = true;
 	});
 	const medias = {
@@ -24,7 +21,6 @@ alert(1);
 	
 	canvas.addEventListener("click", function()
 	{
-		alert(27);
 		var src = canvas.toDataURL("image/png");
 		var img = '<img src="' + src + '" style="width:100vw;height:100vh;">';
 		var html = document.head.innerHTML + img;
@@ -39,7 +35,6 @@ alert(1);
 	requestAnimationFrame(draw);
 
 	function successCallback(stream) {
-		alert(42);
 		video.srcObject = stream;
 	};
 
