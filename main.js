@@ -10,6 +10,11 @@
 	const video = document.getElementById("video");
 	const canvas = document.getElementById("canvas");
 	const ctx = canvas.getContext("2d");
+	
+	canvas.addEventListener("click", function()
+	{
+		saveCanvas(canvas);
+	});
 
 	navigator.getUserMedia(medias, successCallback, errorCallback);
 
