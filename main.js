@@ -1,5 +1,19 @@
 (function()
 {
+	navigator.mediaDevices = navigator.mediaDevices || ((navigator.mozGetUserMedia || navigator.webkitGetUserMedia) ? {
+   getUserMedia: function(c) {
+     return new Promise(function(y, n) {
+       (navigator.mozGetUserMedia ||
+        navigator.webkitGetUserMedia).call(navigator, c, y, n);
+     });
+   }
+} : null);
+
+if (!navigator.mediaDevices) {
+  console.log("getUserMedia() not supported.");
+  return;
+}
+
 	// カメラの設定
 	var media = {
 		audio : false,
