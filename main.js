@@ -51,7 +51,7 @@
 		{
 			var x = canvas.width - yukiyuki.width;
 			var y = canvas.height - yukiyuki.height;
-			ctx.drawImage(yukiyuki, x, y);
+			ctx.drawImage(yukiyuki, x, y * 3 / 2);
 		}
 		
 		requestAnimationFrame(draw);
