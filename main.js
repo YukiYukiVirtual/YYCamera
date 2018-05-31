@@ -50,8 +50,8 @@
 		if(yukiyuki.loaded)
 		{
 			var x = canvas.width - yukiyuki.width;
-			var y = canvas.height - yukiyuki.height;
-			ctx.drawImage(yukiyuki, x, y * 3 / 2);
+			var y = canvas.height - yukiyuki.height * 3 / 2;
+			ctx.drawImage(yukiyuki, x, y);
 		}
 		
 		requestAnimationFrame(draw);
